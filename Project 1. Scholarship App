@@ -1,0 +1,102 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main ()
+{
+    string studentAddress = "", homeAddress = "", ciTy = "", zipCode = "", staTe = "";
+    string phoneNumber = "", emailAddress = "", socialSecurity = "";
+    string lastName = "", middleName = "", firstName = "";
+
+    cout <<"Last Name: ";
+    cin >> lastName;
+
+    cout << "First Name:";
+    cin >> firstName;
+
+    cout << "Middle Name: ";
+    cin >> middleName;
+
+    cout << "Address: ";
+    cin >> homeAddress;
+
+    cout <<"City: ";
+    cin >> ciTy;
+
+    cout << "State: ";
+    cin >> staTe;
+
+    cout << "Zip Code: ";
+    cin >> zipCode;
+
+    cout <<"Last four digits of your social: ";
+    cin >> socialSecurity;
+
+    cout << "Email Address: ";
+    cin >> emailAddress;
+
+    cout << "Phone Number: ";
+    cin >> phoneNumber;
+    
+    int month, day, year;
+
+    cout<<"Please enter your Birthdate (mm-dd-yyyy):";
+    cin>>month>>day>>year;
+
+    switch (month){
+    case 1:
+    cout<<"\nYour birthday is January"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 2:
+    cout<<"\nYour birthday is February"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 3:
+    cout<<"\nYour birthday is March"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 4:
+    cout<<"\nYour birthday is April"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 5:
+    cout<<"\nYour birthday is May"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 6:
+    cout<<"\nYour birthday is June"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 7:
+    cout<<"\nYour birthday is July"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 8:
+    cout<<"\nYour birthday is August"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 9:
+    cout<<"\nYour birthday is September"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 10:
+    cout<<"\nYour birthday is October"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 11:
+    cout<<"\nYour birthday is November"<<day<<"," <<year<<" "<<endl;
+    break;
+    case 12:
+    cout<<"\nYour birthday is December"<<day<<"," <<year<<" "<<endl;
+    break;
+    }
+    if (month>=12)
+    cout<<"\nInvalid Month!";
+    else if (day>=31)
+    cout<<"\nInvalid Day!";
+    else if (year>=1980)
+    cout<<"\nInvalid Year!";
+
+    ofstream outFile;
+    outFile.open("studentInfo.txt", ios::app);
+    outFile << "Name: " <<firstName << " " << middleName << " " << lastName << endl;
+    outFile << "Address: " << homeAddress << " " << ciTy << " " << staTe << " " << zipCode << endl;
+    outFile << "Contact: " << phoneNumber << " " << emailAddress << " " << " " << socialSecurity << endl;
+    outFile.close();
+    
+    cout << "Done! Data is saved!";
+    return 0;
+}
